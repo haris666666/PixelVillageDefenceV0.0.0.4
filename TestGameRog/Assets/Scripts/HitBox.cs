@@ -13,10 +13,11 @@ public class HitBox : PlayerAttack
     }
     public void onClickHitBox()
     {
-        HitBoxWeapon.enabled = true;
-        StartCoroutine(DestroyTime());
+        StartCoroutine(HitBoxEnabled());
+      //  HitBoxWeapon.enabled = true;
+       // StartCoroutine(HitBoxEnabled());
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
@@ -26,7 +27,20 @@ public class HitBox : PlayerAttack
     }
     IEnumerator DestroyTime()
     {
-        yield return new WaitForSeconds(2f);
-        HitBoxWeapon.enabled = false;
+        yield return new WaitForSeconds(1f);
+       // HitBoxWeapon.enabled = false;
     }
+    IEnumerator HitBoxEnabled()
+    {
+        yield return new WaitForSeconds(0.5f);
+        HitBoxWeapon.enabled = true;
+
+        yield return new WaitForSeconds(0.3f);
+        HitBoxWeapon.enabled = false;
+
+    }
+   /* IEnumerator HitBoxEnabledFalse()
+    {
+        HitBoxWeapon.enabled = true;
+    } */
 }
