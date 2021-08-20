@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Joystick Joystick;
-    public float Speed;
+    [SerializeField]  private Joystick Joystick;
+    [SerializeField]  private float Speed;
 
 
 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         moveInput = new Vector2(Joystick.Horizontal, Joystick.Vertical);
         moveVelocity = moveInput.normalized * Speed;
