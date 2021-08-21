@@ -1,26 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Animations;
 
-public class PlayerAttack : Player
+public class PlayerAttack : FightSystem
 {
-   // [SerializeField] GameObject Weapon;
-  //  private Collider2D HitBox;
-    private Animator AnimAttack;
-    protected bool StateAttack = true;
+    private Collider2D HitBoxWeapon;
 
     void Start()
     {
-        AnimAttack = GetComponent<Animator>();
+        HitBoxWeapon = GetComponent<Collider2D>();
+        HitBoxWeapon.enabled = false;
     }
-    public void onClick()
+    public void onClickHitBox()
     {
-        AnimAttack.SetBool("attack", StateAttack);
+        StartCoroutine(HitBoxEnabled());
     }
-    public void EndAttack()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        AnimAttack.SetBool("attack", !StateAttack);
+        if (collision.gameObject.tag == "ZombieTag")
+        {
+            StartCoroutine(DestroyTime());
+            ZombieHp--;
+            if(ZombieHp <= 0)
+            {
+                Destroy(collision.gameObject);
+                ZombieHp = FullZombieHp;
+            }
+        }
+        if (collision.gameObject.tag == "SceletonTag")
+        {
+            StartCoroutine(DestroyTime());
+            SceletonHp--;
+            if(SceletonHp <= 0)
+            {
+                Destroy(collision.gameObject);
+                SceletonHp = FullSceletonHp;
+            }
+        }
     }
+    IEnumerator DestroyTime()
+    {
+        yield return new WaitForSeconds(1f);
+    }
+    IEnumerator HitBoxEnabled()
+    {
+        yield return new WaitForSeconds(0.5f); // через 5 секунд нанесется урон
+        HitBoxWeapon.enabled = true;
+
+        yield return new WaitForSeconds(0.3f);
+        HitBoxWeapon.enabled = false;
+    }
+
 }

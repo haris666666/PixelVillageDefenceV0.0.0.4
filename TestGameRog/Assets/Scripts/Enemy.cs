@@ -20,9 +20,10 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-
         FoundHero = GameObject.Find("Hero");
-       
+
+        Anim = GetComponent<Animator>();
+
     }
 
     
@@ -37,6 +38,19 @@ public class Enemy : MonoBehaviour
         else
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+
+
+        if (Vector2.Distance( FoundHero.transform.position , transform.position) < 1)
+            
+        {
+            Anim.SetBool("attack", true);
+        }
+        if (Vector2.Distance(FoundHero.transform.position, transform.position) > 1)
+
+        {
+            Anim.SetBool("attack", false);
         }
     }
 }
