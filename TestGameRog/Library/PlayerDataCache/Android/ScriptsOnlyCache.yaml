@@ -1,18 +1,19 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CameraController
     - Enemy
     - EnemyAttack
     - FightSystem
     - FixedJoystick
+    - MoveBullet
     - Player
     - PlayerAttack
+    - PlayerMagicAttack
     - SpawnEnemy
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshModifier
     - UnityEngine.AI.NavMeshSurface2d
-    NavMeshComponentsEditor.dll:
-    - UnityEditor.AI.NavMeshAssetManager2d
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -22,6 +23,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -72,6 +74,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -115,7 +119,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3472}
     - Class: 114
-      Script: {instanceID: 4544}
+      Script: {instanceID: 4546}
+    - Class: 114
+      Script: {instanceID: 17986}
+    - Class: 114
+      Script: {instanceID: 19542}
+    - Class: 114
+      Script: {instanceID: 25486}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -532,6 +542,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HitBox
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
@@ -769,7 +785,25 @@ ScriptsOnlyBuild:
     assemblyName: NavMeshComponents.dll
     namespaceName: UnityEngine.AI
     className: NavMeshLink
+  - hash:
+      serializedVersion: 2
+      Hash: eb42878145060660b864fab72cb8082a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: aed9a4c6aaa7e53c010957195a01dce4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerMagicAttack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoveBullet
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/sergo/Desktop/projects/pvdV0.0.0.4.apk
+  playerPath: C:/Users/sergo/Desktop/projects/pvdV0.0.0.5.apk
