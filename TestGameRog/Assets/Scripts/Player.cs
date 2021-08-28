@@ -51,9 +51,7 @@ public class Player : MonoBehaviour
     }
     private void flip()
     {
+        transform.Rotate(0f, 180, 0f);
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
     }
 }

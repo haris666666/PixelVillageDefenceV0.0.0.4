@@ -14,8 +14,6 @@ public class HitBox : PlayerAttack
     public void onClickHitBox()
     {
         StartCoroutine(HitBoxEnabled());
-      //  HitBoxWeapon.enabled = true;
-       // StartCoroutine(HitBoxEnabled());
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +26,6 @@ public class HitBox : PlayerAttack
     IEnumerator DestroyTime()
     {
         yield return new WaitForSeconds(1f);
-       // HitBoxWeapon.enabled = false;
     }
     IEnumerator HitBoxEnabled()
     {
@@ -39,8 +36,5 @@ public class HitBox : PlayerAttack
         HitBoxWeapon.enabled = false;
 
     }
-   /* IEnumerator HitBoxEnabledFalse()
-    {
-        HitBoxWeapon.enabled = true;
-    } */
+ 
 }
